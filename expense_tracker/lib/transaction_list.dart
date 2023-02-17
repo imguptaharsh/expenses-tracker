@@ -77,6 +77,7 @@ class TransactionList extends StatelessWidget {
                 //     ],
                 //   ),
                 // );
+
                 return Card(
                   color: Theme.of(context).primaryColorLight,
                   elevation: 2,
