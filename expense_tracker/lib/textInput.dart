@@ -50,69 +50,74 @@ class _textInputState extends State<textInput> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Card(
-        elevation: 5,
-        child: Container(
-          padding: EdgeInsets.only(
-              top: 10,
-              left: 10,
-              right: 10,
-              bottom: MediaQuery.of(context).viewInsets.bottom + 10),
-          decoration: BoxDecoration(
-            color: Theme.of(context).primaryColorLight,
+      child: Container(
+        padding: EdgeInsets.only(
+            top: 10,
+            left: 10,
+            right: 10,
+            bottom: MediaQuery.of(context).viewInsets.bottom + 10),
+        decoration: BoxDecoration(
+          color: Theme.of(context).primaryColorLight,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>[
-              TextField(
-                decoration: InputDecoration(
-                  labelText: 'Title...',
-                ),
-                controller: _titleController,
-                onSubmitted: (_) => submitData,
+          // border: Border.all(
+          //   color: Theme.of(context).primaryColorDark,
+          //   width: 2,
+          // ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: <Widget>[
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Title...',
               ),
-              TextField(
-                decoration: InputDecoration(
-                  labelText: 'Amount...',
-                ),
-                controller: _amountController,
-                keyboardType: TextInputType.number,
-                onSubmitted: (_) => submitData,
+              controller: _titleController,
+              onSubmitted: (_) => submitData,
+            ),
+            TextField(
+              decoration: InputDecoration(
+                labelText: 'Amount...',
               ),
-              Row(
-                children: [
-                  Container(
-                    child: Text(
-                      _selectedDate == null
-                          ? "No date choosen yet!"
-                          : "Picked Date: ${DateFormat.yMd().format(_selectedDate)}",
+              controller: _amountController,
+              keyboardType: TextInputType.number,
+              onSubmitted: (_) => submitData,
+            ),
+            Row(
+              children: [
+                Container(
+                  child: Text(
+                    _selectedDate == null
+                        ? "No date choosen yet!"
+                        : "Picked Date: ${DateFormat.yMd().format(_selectedDate)}",
+                  ),
+                ),
+                TextButton(
+                  onPressed: _presentDatePicker,
+                  child: Text(
+                    "choose a date",
+                    style: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  TextButton(
-                    onPressed: _presentDatePicker,
-                    child: Text(
-                      "choose a date",
-                      style: TextStyle(
-                        color: Theme.of(context).primaryColor,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              ElevatedButton(
-                onPressed: submitData,
+                ),
+              ],
+            ),
+            ElevatedButton(
+              onPressed: submitData,
+              // ignore: prefer_const_constructors
+              child: Text(
+                'Add Transaction',
                 // ignore: prefer_const_constructors
-                child: Text(
-                  'Add Transaction',
-                  // ignore: prefer_const_constructors
-                  style: TextStyle(
-                    color: Theme.of(context).primaryColorLight,
-                  ),
+                style: TextStyle(
+                  color: Colors.green,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

@@ -12,23 +12,21 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
     return transactions.isEmpty
         ? LayoutBuilder(builder: (context, constraints) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.end,
+            return Stack(
               children: [
-                const Text(
-                  "No transaction added yet!",
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-                SizedBox(height: 20),
                 Container(
-                    height: constraints.maxHeight * .6,
+                    // height: constraints.maxHeight * .6,
+                    width: constraints.maxWidth,
                     child: Image.asset(
                       'assets/images/waiting.png',
                       fit: BoxFit.cover,
                     )),
+                Center(
+                  child: const Text(
+                    "No transaction added yet!",
+                    style: TextStyle(color: Colors.white, fontSize: 23),
+                  ),
+                ),
               ],
             );
           })

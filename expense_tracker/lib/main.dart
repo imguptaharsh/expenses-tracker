@@ -27,25 +27,27 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primarySwatch: Colors.green,
-          accentColor: Colors.amber,
-          fontFamily: 'Quiksand',
-          textTheme: ThemeData.light().textTheme.copyWith(
-                // ignore: prefer_const_constructors
-                titleMedium: TextStyle(
-                  fontFamily: 'OpenSans',
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
+        primarySwatch: Colors.green,
+        primaryColor: Colors.green,
+        hintColor: Colors.amber,
+        fontFamily: 'Quiksand',
+        textTheme: ThemeData.light().textTheme.copyWith(
+              // ignore: prefer_const_constructors
+              titleMedium: TextStyle(
+                fontFamily: 'OpenSans',
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
               ),
-          appBarTheme: AppBarTheme(
-              textTheme: ThemeData.light().textTheme.copyWith(
-                      // ignore: prefer_const_constructors
-                      titleMedium: TextStyle(
-                    fontFamily: 'OpenSans',
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                  )))),
+            ),
+        appBarTheme: const AppBarTheme(
+          titleTextStyle: TextStyle(
+            fontFamily: 'OpenSans',
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
+            color: Colors.white, // Make sure to set the color as well
+          ),
+        ),
+      ),
       home: MyHomePage(),
     );
   }
